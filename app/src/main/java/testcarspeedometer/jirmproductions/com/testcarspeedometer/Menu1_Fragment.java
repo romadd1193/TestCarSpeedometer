@@ -17,11 +17,14 @@ import android.widget.TextView;
  */
 public class Menu1_Fragment extends Fragment implements LocationListener {
     View rootview;
+    TextView initial;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.menu1_layout, container, false);
+
+        initial = (TextView) rootview.findViewById(R.id.initial);
 
         LocationManager lm = (LocationManager) this.getActivity().getSystemService(Context.LOCATION_SERVICE);
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
@@ -32,7 +35,7 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
 
     @Override
     public void onLocationChanged(Location location) {
-        TextView initial = (TextView) this.getActivity().findViewById(R.id.initial);
+
 
         if (location == null) {
             initial.setText("0.0");
