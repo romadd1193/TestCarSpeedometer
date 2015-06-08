@@ -22,29 +22,38 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.menu1_layout, container, false);
-        return rootview;
 
         LocationManager lm = (LocationManager) this.getActivity().getSystemService(Context.LOCATION_SERVICE);
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-
         this.onLocationChanged(null);
 
+        return rootview;
+    }
 
-        @Override
-        public void onLocationChanged (Location location){
-            TextView initial = (TextView) this.getActivity().findViewById(R.id.initial);
+    @Override
+    public void onLocationChanged(Location location) {
+        TextView initial = (TextView) this.getActivity().findViewById(R.id.initial);
 
-            if (location == null) {
-                initial.setText("0.0");
-            }
-            else
-            {
-                float nCurrentSpeed = loc.getSpeed();
-                initial.setText((int) nCurrentSpeed);
+        if (location == null) {
+            initial.setText("0.0");
+        } else {
+            float nCurrentSpeed = location.getSpeed();
+            initial.setText((int) nCurrentSpeed);
+        }
+    }
 
-
-
-                 }
-
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
 
     }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+
+    }
+}
