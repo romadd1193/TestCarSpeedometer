@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="0"
-        android:id="@+id/initial"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
 
     <DigitalClock
         android:layout_width="wrap_content"
@@ -17,6 +12,20 @@
         android:id="@+id/digitalClock"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textColor="#32cd32"
+        android:layout_gravity="right" />
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0"
+        android:id="@+id/initial"
+        android:paddingTop="640px"
+        android:textColor="#32cd32"
+        android:textStyle="bold"
+        android:textSize="@dimen/abc_action_bar_default_height_material"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>
