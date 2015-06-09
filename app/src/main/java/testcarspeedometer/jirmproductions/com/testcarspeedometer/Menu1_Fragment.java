@@ -14,8 +14,8 @@ import android.widget.TextView;
  * Created by romad_000 on 6/7/2015.
  */
 public class Menu1_Fragment extends Fragment implements LocationListener {
-    TextView txt;
-    TextView maxtxt;
+    private TextView txt;
+    private TextView maxtxt;
     public Menu1_Fragment(){}
 
     @Override
