@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".LinearLayout"
-    android:id="@+id/menu2timer">
+    android:id="@+id/menu2timer"
+    android:background="#000000">
 
     <DigitalClock
         android:layout_width="wrap_content"
@@ -21,9 +22,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="0.00"
-        android:id="@+id/textView2"
-        android:layout_gravity="center_horizontal" />
+        android:text="0:00:000"
+        android:id="@+id/menu2timertxt"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#32cd32"
+        android:textSize="@dimen/abc_action_bar_default_height_material"
+        android:paddingTop="150px"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop Timer"
+        android:id="@+id/menu2stoptimerbutton"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#32cd32"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,7 +44,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="0"
         android:id="@+id/menu2initial"
-        android:paddingTop="640px"
+        android:paddingTop="300px"
+        android:paddingBottom="300px"
         android:textColor="#32cd32"
         android:textStyle="bold"
         android:textSize="@dimen/abc_action_bar_default_height_material"
@@ -42,13 +56,16 @@
         android:layout_height="wrap_content"
         android:text="Quarter Mile Time"
         android:id="@+id/menu2quarterbutton"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:textColor="#32cd32"
+       />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0-60 MPH Time"
         android:id="@+id/menu260button"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:textColor="#32cd32"/>
 
 </LinearLayout>

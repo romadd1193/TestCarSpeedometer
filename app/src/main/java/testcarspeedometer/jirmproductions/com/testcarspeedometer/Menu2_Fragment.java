@@ -20,8 +20,10 @@ import android.os.Handler;
  */
 public class Menu2_Fragment extends Fragment implements LocationListener {
     private TextView txt;
+    private TextView timer;
     private Button z60;
     private Button quarter;
+    private Button stop;
     private long startTime = 0L;
     long timeInMilliseconds = 0L;
     long timeSwapBuff = 0L;
@@ -38,8 +40,10 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
         View rootView = inflater.inflate(R.layout.menu2_layout, container, false);
 
         txt = (TextView) rootView.findViewById(R.id.menu2initial);
+        timer = (TextView) rootView.findViewById(R.id.menu2timertxt);
         z60 = (Button) rootView.findViewById(R.id.menu260button);
         quarter = (Button) rootView.findViewById(R.id.menu2quarterbutton);
+        stop= (Button) rootView.findViewById(R.id.menu2stoptimerbutton);
         LocationManager lm = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
 
@@ -59,6 +63,14 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
             }
         });
 
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handler.removeCallbacks(updateTimerThread);
+                timer.setText("0:00:000");
+            }
+        });
+
     return rootView;
 }
 
@@ -72,7 +84,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
             int mins = secs / 60;
             secs = secs % 60;
             int milliseconds = (int) (updatedTime % 1000);
-            txt.setText("" + mins + ":"
+            timer.setText("" + mins + ":"
                     + String.format("%02d", secs) + ":"
                     + String.format("%03d", milliseconds));
             handler.postDelayed(this, 0);
