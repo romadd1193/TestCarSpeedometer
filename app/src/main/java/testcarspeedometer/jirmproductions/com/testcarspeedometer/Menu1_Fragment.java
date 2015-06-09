@@ -15,6 +15,7 @@ import android.widget.TextView;
  */
 public class Menu1_Fragment extends Fragment implements LocationListener {
     TextView txt;
+    TextView maxtxt;
     public Menu1_Fragment(){}
 
     @Override
@@ -24,24 +25,50 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
         View rootView = inflater.inflate(R.layout.menu1_layout, container, false);
 
         txt=(TextView)rootView.findViewById(R.id.initial);
+        maxtxt=(TextView)rootView.findViewById(R.id.txtmax);
 
         LocationManager lm= (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
 
         return rootView;
     }
+
+    private float nMaxSpeed = 0;
     @Override
     public void onLocationChanged(Location location) {
 
         if(location==null){
-            txt.setText("-.- m/s");
+            txt.setText("-.- MPH");
         }
         else {
             float nCurrentSpeed=location.getSpeed();
-            txt.setText(nCurrentSpeed+" M/S");
+            txt.setText((nCurrentSpeed*2.23694)+" MPH");
+
+            if (nCurrentSpeed > nMaxSpeed) {
+                nMaxSpeed=nCurrentSpeed;
+                maxtxt.setText(""+(int) nCurrentSpeed);
+            }
         }
 
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {

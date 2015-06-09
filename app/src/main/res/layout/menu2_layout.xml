@@ -4,11 +4,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LinearLayout" >
+    tools:context=".LinearLayout"
+    android:id="@+id/menu2timer">
+
+    <DigitalClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/menu2digitalClock"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="#32cd32"
+        android:layout_gravity="right" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2"
-        android:layout_gravity="center_vertical"/>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0.00"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0"
+        android:id="@+id/menu2initial"
+        android:paddingTop="640px"
+        android:textColor="#32cd32"
+        android:textStyle="bold"
+        android:textSize="@dimen/abc_action_bar_default_height_material"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quarter Mile Time"
+        android:id="@+id/menu2quarterbutton"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0-60 MPH Time"
+        android:id="@+id/menu260button"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>

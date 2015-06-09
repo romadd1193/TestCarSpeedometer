@@ -28,4 +28,14 @@
         android:textSize="@dimen/abc_action_bar_default_height_material"
         android:layout_gravity="center_horizontal" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0"
+        android:id="@+id/txtmax"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#32cd32"
+        android:paddingTop="640px"/>
+
 </LinearLayout>
