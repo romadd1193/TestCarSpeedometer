@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.os.Handler;
 
@@ -21,8 +22,8 @@ import android.os.Handler;
 public class Menu2_Fragment extends Fragment implements LocationListener {
     private TextView txt;
     private TextView timer;
-    private Button z60;
-    private Button quarter;
+    private ImageButton z60;
+    private ImageButton quarter;
     private Button stop;
     private long startTime = 0L;
     long timeInMilliseconds = 0L;
@@ -41,8 +42,8 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
 
         txt = (TextView) rootView.findViewById(R.id.menu2initial);
         timer = (TextView) rootView.findViewById(R.id.menu2timertxt);
-        z60 = (Button) rootView.findViewById(R.id.menu260button);
-        quarter = (Button) rootView.findViewById(R.id.menu2quarterbutton);
+        z60 = (ImageButton) rootView.findViewById(R.id.menu2imageButtonzsixty);
+        quarter = (ImageButton) rootView.findViewById(R.id.menu2imageButtonquarter);
         stop= (Button) rootView.findViewById(R.id.menu2stoptimerbutton);
         LocationManager lm = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
@@ -100,7 +101,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
         }
         else{
             float nCurrentSpeed=location.getSpeed();
-            txt.setText((nCurrentSpeed*2.23694)+" MPH");
+            txt.setText((Math.round(nCurrentSpeed * 2.23694)+" MPH"));
             if((nCurrentSpeed*2.23694)>=60)
             {
                 handler.removeCallbacks(updateTimerThread);

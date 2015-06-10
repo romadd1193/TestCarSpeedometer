@@ -42,7 +42,7 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
         }
         else {
             float nCurrentSpeed=location.getSpeed();
-            txt.setText((nCurrentSpeed*2.23694)+" MPH");
+            txt.setText((Math.round(nCurrentSpeed * 2.23694)+" MPH"));
 
             if (nCurrentSpeed > nMaxSpeed) {
                 nMaxSpeed=nCurrentSpeed;
@@ -52,21 +52,6 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

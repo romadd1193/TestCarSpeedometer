@@ -27,16 +27,17 @@
         android:layout_gravity="center_horizontal"
         android:textColor="#32cd32"
         android:textSize="@dimen/abc_action_bar_default_height_material"
-        android:paddingTop="150px"/>
+        android:paddingTop="50dp"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="84dp"
         android:layout_height="wrap_content"
         android:text="Stop Timer"
         android:id="@+id/menu2stoptimerbutton"
         android:layout_gravity="center_horizontal"
-        android:textColor="#32cd32"/>
+        android:textColor="#32cd32"
+        android:background="#000000"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,28 +45,28 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="0"
         android:id="@+id/menu2initial"
-        android:paddingTop="300px"
-        android:paddingBottom="300px"
+        android:paddingTop="80dp"
+        android:paddingBottom="80dp"
         android:textColor="#32cd32"
         android:textStyle="bold"
         android:textSize="@dimen/abc_action_bar_default_height_material"
         android:layout_gravity="center_horizontal" />
 
-    <Button
+    <ImageButton
+        android:id="@+id/menu2imageButtonquarter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quarter Mile Time"
-        android:id="@+id/menu2quarterbutton"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#32cd32"
-       />
+        android:src="@drawable/qmtime"
+        android:background="#000000"
+        android:layout_gravity="center" />/>
 
-    <Button
+    <ImageButton
+        android:id="@+id/menu2imageButtonzsixty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0-60 MPH Time"
-        android:id="@+id/menu260button"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#32cd32"/>
+        android:src="@drawable/zerotosixty"
+        android:background="#000000"
+        android:layout_gravity="center" />/>
+        />
 
 </LinearLayout>
