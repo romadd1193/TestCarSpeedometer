@@ -9,7 +9,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.TextView;
+
+
 /**
  * Created by romad_000 on 6/7/2015.
  */
@@ -39,19 +42,25 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
 
         if(location==null){
             txt.setText("-.- MPH");
-        }
+    }
         else {
             float nCurrentSpeed=location.getSpeed();
             txt.setText((Math.round(nCurrentSpeed * 2.23694)+" MPH"));
 
             if (nCurrentSpeed > nMaxSpeed) {
                 nMaxSpeed=nCurrentSpeed;
-                maxtxt.setText(""+(int) nCurrentSpeed);
+                maxtxt.setText("Top Speed this Session: "+(Math.round(nCurrentSpeed * 2.23694)+" MPH"));
             }
         }
 
 
     }
+
+
+
+
+
+
 
 
 

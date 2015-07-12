@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Test Car Speedometer</string>
+    <string name="app_name">Car Speedometer</string>
 
     <string name="title_section1">Speed</string>
     <string name="title_section2">Performance</string>
-    <string name="title_section3">History</string>
+    <string name="title_section3"></string>
 
 
     <string name="currentSpeed">History</string>
@@ -12,7 +12,13 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_example">Miles/Kilometers</string>
+    <string name="action_example"></string>
+    <string name="action_settings">Useful Information</string>
+    <string name="ImpInfo">Important Information</string>
 
-    <string name="action_settings">Help</string>
+
+<string name="Information">This app requires location services to be enabled for proper functionality.</string>
+
+    <string name="Information1">This app updates location constantly to provide the most accurate possible GPS based speed results.</string>
+    <string name="Information2">This constant work can drain the battery quickly, so it is recommended to completely close the app or disable location services when it is not in use.</string>
 </resources>

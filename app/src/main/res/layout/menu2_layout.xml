@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="0"
+        android:text="0 MPH"
         android:id="@+id/menu2initial"
         android:paddingTop="80dp"
         android:paddingBottom="80dp"

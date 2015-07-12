@@ -1,5 +1,8 @@
 package testcarspeedometer.jirmproductions.com.testcarspeedometer;
 
+import testcarspeedometer.jirmproductions.com.testcarspeedometer.Conversion_Fragment.AlertPositiveListener;
+import android.app.FragmentManager;
+import android.content.ClipData;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -19,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -27,8 +31,8 @@ import android.widget.Toast;
  * See the <a href="https://developer.android.com/design/patterns/navigation-drawer.html#Interaction">
  * design guidelines</a> for a complete explanation of the behaviors implemented here.
  */
-public class NavigationDrawerFragment extends Fragment {
-
+public class NavigationDrawerFragment extends Fragment implements AlertPositiveListener  {
+    int position = 0;
     /**
      * Remember the position of the selected item.
      */
@@ -248,17 +252,31 @@ public class NavigationDrawerFragment extends Fragment {
         }
 
         if (item.getItemId() == R.id.action_example) {
-            Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
-            return true;
+            View.OnClickListener listener = new View.OnClickListener() {
+               @Override
+                public void onClick(View v) {
+                    android.support.v4.app.FragmentManager manager = getFragmentManager();
+
+                    Conversion_Fragment alert = new Conversion_Fragment();
+
+                    Bundle b  = new Bundle();
+
+                    b.putInt("position", position);
+
+                    alert.setArguments(b);
+
+                    alert.show(manager, "alert_dialog_radio");
+                }
+            };
+
+
+            //return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * Per the navigation drawer design guidelines, updates the action bar to show the global app
-     * 'context', rather than just what's in the current screen.
-     */
+
     private void showGlobalContextActionBar() {
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayShowTitleEnabled(true);
@@ -270,13 +288,13 @@ public class NavigationDrawerFragment extends Fragment {
         return ((ActionBarActivity) getActivity()).getSupportActionBar();
     }
 
-    /**
-     * Callbacks interface that all activities using this fragment must implement.
-     */
+    @Override
+    public void onPositiveClick(int position) {
+
+    }
+
     public static interface NavigationDrawerCallbacks {
-        /**
-         * Called when an item in the navigation drawer is selected.
-         */
+
         void onNavigationDrawerItemSelected(int position);
     }
 }
