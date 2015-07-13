@@ -119,7 +119,7 @@ public class MainActivity extends ActionBarActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-
+    /*
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
 
             // set title
@@ -127,9 +127,8 @@ public class MainActivity extends ActionBarActivity
 
             // set dialog message
             alertDialogBuilder
-                    .setMessage("Test")
                     .setCancelable(false)
-                    .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+                    .setPositiveButton("MPH",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,int id) {
                             // if this button is clicked, close
                             // current activity
@@ -137,7 +136,7 @@ public class MainActivity extends ActionBarActivity
 
                         }
                     })
-                    .setNegativeButton("No",new DialogInterface.OnClickListener() {
+                    .setNegativeButton("KPH",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,int id) {
                             // if this button is clicked, just close
                             // the dialog box and do nothing
@@ -150,7 +149,7 @@ public class MainActivity extends ActionBarActivity
 
             // show it
             alertDialog.show();
-
+*/
             return true;
         }
 
