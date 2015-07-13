@@ -15,7 +15,7 @@ public class Menu3_Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootview = inflater.inflate(R.layout.menu3_layout, container,false);
+        rootview = inflater.inflate(R.layout.importantinfo, container,false);
         return rootview;
     }
 }

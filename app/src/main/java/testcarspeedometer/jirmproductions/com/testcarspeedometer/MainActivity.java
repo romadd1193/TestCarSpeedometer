@@ -61,7 +61,7 @@ public class MainActivity extends ActionBarActivity
                 objFragment = new Menu2_Fragment();
                 break;
             case 2:
-                objFragment = new Menu1_Fragment();
+                objFragment = new Menu3_Fragment();
                 break;
         }
 
@@ -116,6 +116,7 @@ public class MainActivity extends ActionBarActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
 
 
             return true;

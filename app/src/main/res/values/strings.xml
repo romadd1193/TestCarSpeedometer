@@ -3,7 +3,7 @@
 
     <string name="title_section1">Speed</string>
     <string name="title_section2">Performance</string>
-    <string name="title_section3"></string>
+    <string name="title_section3">Useful Information</string>
 
 
     <string name="currentSpeed">History</string>
@@ -13,7 +13,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_example"></string>
-    <string name="action_settings">Useful Information</string>
+    <string name="action_settings">MPH/KPH</string>
     <string name="ImpInfo">Important Information</string>
 
 

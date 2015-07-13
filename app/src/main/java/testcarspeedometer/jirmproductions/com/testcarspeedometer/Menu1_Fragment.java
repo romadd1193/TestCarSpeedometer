@@ -41,15 +41,15 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
     public void onLocationChanged(Location location) {
 
         if(location==null){
-            txt.setText("-.- MPH");
+            txt.setText("-.-");
     }
         else {
             float nCurrentSpeed=location.getSpeed();
-            txt.setText((Math.round(nCurrentSpeed * 2.23694)+" MPH"));
+            txt.setText((Math.round(nCurrentSpeed * 2.23694)+""));
 
             if (nCurrentSpeed > nMaxSpeed) {
                 nMaxSpeed=nCurrentSpeed;
-                maxtxt.setText("Top Speed this Session: "+(Math.round(nCurrentSpeed * 2.23694)+" MPH"));
+                maxtxt.setText("Top Speed this Session: "+(Math.round(nCurrentSpeed * 2.23694)+""));
             }
         }
 

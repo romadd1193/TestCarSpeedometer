@@ -53,12 +53,4 @@
         android:paddingTop="75px"
         android:paddingBottom="75px"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back to Main"
-        android:id="@+id/backtomainbtn"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#32cd32"
-        />
 </LinearLayout>
