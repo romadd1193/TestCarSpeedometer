@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#000000"
@@ -23,7 +24,7 @@
         android:text="@string/Information"
         android:id="@+id/textView4"
         android:layout_gravity="center_horizontal"
-        android:paddingTop="150px"
+        android:paddingTop="80px"
         android:textColor="#32cd32"
         android:paddingLeft="50px"
         android:paddingRight="50px"/>

@@ -15,6 +15,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.os.Handler;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 
 /**
  * Created by romad_000 on 6/7/2015.
@@ -92,6 +95,10 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
                 timer.setText("0:00:000");
             }
         });
+
+        AdView mAdView = (AdView)rootView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
     return rootView;
 }

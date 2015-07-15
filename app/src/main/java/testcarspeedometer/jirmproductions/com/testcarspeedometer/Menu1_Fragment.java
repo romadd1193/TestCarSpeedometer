@@ -12,6 +12,9 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 
 /**
  * Created by romad_000 on 6/7/2015.
@@ -25,16 +28,27 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
+
+
         View rootView = inflater.inflate(R.layout.menu1_layout, container, false);
 
         txt=(TextView)rootView.findViewById(R.id.initial);
         maxtxt=(TextView)rootView.findViewById(R.id.txtmax);
 
+
+        AdView mAdView = (AdView)rootView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         LocationManager lm= (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
 
         return rootView;
+
     }
+
+
 
     private float nMaxSpeed = 0;
     @Override
@@ -51,6 +65,7 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
                 nMaxSpeed=nCurrentSpeed;
                 maxtxt.setText("Top Speed this Session: "+(Math.round(nCurrentSpeed * 2.23694)+""));
             }
+
         }
 
 

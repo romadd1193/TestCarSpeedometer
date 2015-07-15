@@ -21,4 +21,11 @@
 
     <string name="Information1">This app updates location constantly to provide the most accurate possible GPS based speed results.</string>
     <string name="Information2">This constant work can drain the battery quickly, so it is recommended to completely close the app or disable location services when it is not in use.</string>
+
+
+
+
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+
+
 </resources>

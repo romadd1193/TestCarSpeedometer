@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,6 +19,16 @@
         android:textColor="#32cd32"
         android:layout_gravity="right" />
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"
+        android:layout_gravity="center_horizontal"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,7 +38,7 @@
         android:layout_gravity="center_horizontal"
         android:textColor="#32cd32"
         android:textSize="@dimen/abc_action_bar_default_height_material"
-        android:paddingTop="50dp"/>
+        android:paddingTop="20dp"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -69,8 +80,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="0 MPH"
         android:id="@+id/menu2initial"
-        android:paddingTop="80dp"
-        android:paddingBottom="80dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="70dp"
         android:textColor="#32cd32"
         android:textStyle="bold"
         android:textSize="@dimen/abc_action_bar_default_height_material"

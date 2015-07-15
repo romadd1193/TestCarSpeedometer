@@ -11,11 +11,19 @@ import android.view.ViewGroup;
  * Created by romad_000 on 6/7/2015.
  */
 public class Menu3_Fragment extends Fragment {
+
     View rootview;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.importantinfo, container,false);
+
+
         return rootview;
+
+
     }
+
+
+
 }
