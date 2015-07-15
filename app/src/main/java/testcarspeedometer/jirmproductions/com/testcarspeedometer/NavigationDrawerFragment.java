@@ -1,6 +1,5 @@
 package testcarspeedometer.jirmproductions.com.testcarspeedometer;
 
-import testcarspeedometer.jirmproductions.com.testcarspeedometer.Conversion_Fragment.AlertPositiveListener;
 import android.app.FragmentManager;
 import android.content.ClipData;
 import android.support.v7.app.ActionBarActivity;
@@ -31,7 +30,7 @@ import android.widget.Toast;
  * See the <a href="https://developer.android.com/design/patterns/navigation-drawer.html#Interaction">
  * design guidelines</a> for a complete explanation of the behaviors implemented here.
  */
-public class NavigationDrawerFragment extends Fragment implements AlertPositiveListener  {
+public class NavigationDrawerFragment extends Fragment  {
     int position = 0;
     /**
      * Remember the position of the selected item.
@@ -257,15 +256,10 @@ public class NavigationDrawerFragment extends Fragment implements AlertPositiveL
                 public void onClick(View v) {
                     android.support.v4.app.FragmentManager manager = getFragmentManager();
 
-                    Conversion_Fragment alert = new Conversion_Fragment();
-
                     Bundle b  = new Bundle();
 
                     b.putInt("position", position);
 
-                    alert.setArguments(b);
-
-                    alert.show(manager, "alert_dialog_radio");
                 }
             };
 
@@ -286,11 +280,6 @@ public class NavigationDrawerFragment extends Fragment implements AlertPositiveL
 
     private ActionBar getActionBar() {
         return ((ActionBarActivity) getActivity()).getSupportActionBar();
-    }
-
-    @Override
-    public void onPositiveClick(int position) {
-
     }
 
     public static interface NavigationDrawerCallbacks {

@@ -22,6 +22,9 @@ import android.os.Handler;
 public class Menu2_Fragment extends Fragment implements LocationListener {
     private TextView txt;
     private TextView timer;
+    private TextView initialLat;
+    private TextView initialLong;
+    private TextView totalDistance;
     private ImageButton z60;
     private ImageButton quarter;
     private Button stop;
@@ -29,7 +32,12 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
     long timeInMilliseconds = 0L;
     long timeSwapBuff = 0L;
     long updatedTime = 0L;
+    double distance = 0L;
+    double initLat = 0;
+    double initLong = 0;
     private Handler handler = new Handler();
+    Location l;
+    LocationManager lm;
 
     public Menu2_Fragment() {
     }
@@ -42,16 +50,22 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
 
         txt = (TextView) rootView.findViewById(R.id.menu2initial);
         timer = (TextView) rootView.findViewById(R.id.menu2timertxt);
+
+        initialLat = (TextView) rootView.findViewById(R.id.textView8);
+        initialLong = (TextView) rootView.findViewById(R.id.textView9);
+        totalDistance = (TextView) rootView.findViewById(R.id.textView10);
+
         z60 = (ImageButton) rootView.findViewById(R.id.menu2imageButtonzsixty);
         quarter = (ImageButton) rootView.findViewById(R.id.menu2imageButtonquarter);
         stop= (Button) rootView.findViewById(R.id.menu2stoptimerbutton);
-        LocationManager lm = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+        lm = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
 
         z60.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startTime = SystemClock.uptimeMillis();
+                distance = 0L;
                 handler.postDelayed(updateTimerThread, 0);
             }
         });
@@ -60,6 +74,12 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
             @Override
             public void onClick(View v) {
                 startTime = SystemClock.uptimeMillis();
+                distance = 0L;
+                l = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                initLat = l.getLatitude();
+                initialLat.setText("InitLat: "+initLat+"");
+                initLong = l.getLongitude();
+                initialLong.setText("InitLong:"+initLong+"");
                 handler.postDelayed(updateTimerThread, 0);
             }
         });
@@ -68,6 +88,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
             @Override
             public void onClick(View v) {
                 handler.removeCallbacks(updateTimerThread);
+                distance = 0L;
                 timer.setText("0:00:000");
             }
         });
@@ -101,8 +122,28 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
         }
         else{
             float nCurrentSpeed=location.getSpeed();
+            double nLat = location.getLatitude();
+            double nLong = location.getLongitude();
+
+            double dlon  = nLong - initLong;
+            double dlat  = nLat - initLat;
+            double a = Math.pow((Math.sin(dlat/2)),2) + Math.cos(initLat) * Math.cos(nLat) * Math.pow((Math.sin(dlon/2)),2);
+            double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            distance = (3961.0 * c); // (where 3961 is the radius of the Earth);
+            totalDistance.setText("Distance: "+distance+"");
+            /*
+            dlon = lon2 - lon1
+            dlat = lat2 - lat1
+            a = (sin(dlat/2))^2 + cos(lat1) * cos(lat2) * (sin(dlon/2))^2
+            c = 2 * atan2( sqrt(a), sqrt(1-a) )
+            d = R * c (where R is the radius of the Earth)
+             */
             txt.setText((Math.round(nCurrentSpeed * 2.23694)+" MPH"));
             if((nCurrentSpeed*2.23694)>=60)
+            {
+                handler.removeCallbacks(updateTimerThread);
+            }
+            if((distance)>=0.25)
             {
                 handler.removeCallbacks(updateTimerThread);
             }
