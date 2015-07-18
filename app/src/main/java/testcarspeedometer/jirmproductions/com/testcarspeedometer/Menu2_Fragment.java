@@ -133,7 +133,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
         else{
             float nCurrentSpeed=location.getSpeed();
 
-            if(flag=="quarter") {
+            if(flag.equals("quarter")) {
                 double nLat = location.getLatitude();
                 double nLong = location.getLongitude();
 
@@ -156,7 +156,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
             {
                 handler.removeCallbacks(updateTimerThread);
             }
-            if(distance>=0.25&&flag=="quarter")
+            if(distance>=0.25&&flag.equals("quarter"))
             {
                 handler.removeCallbacks(updateTimerThread);
             }
