@@ -7,7 +7,8 @@
     android:orientation="vertical"
     tools:context=".LinearLayout"
     android:id="@+id/menu2timer"
-    android:background="#000000">
+    android:background="#000000"
+    android:keepScreenOn="true">
 
     <DigitalClock
         android:layout_width="wrap_content"
@@ -53,7 +54,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text=""
         android:id="@+id/textView8"
         android:textColor="#32cd32"
         android:layout_gravity="center_horizontal" />
@@ -61,7 +62,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text=""
         android:textColor="#32cd32"
         android:id="@+id/textView9"
         android:layout_gravity="center_horizontal" />
@@ -69,7 +70,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text=""
         android:textColor="#32cd32"
         android:id="@+id/textView10"
         android:layout_gravity="center_horizontal" />

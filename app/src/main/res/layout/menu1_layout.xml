@@ -5,6 +5,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#000000"
+    android:keepScreenOn="true"
     >
 
 
@@ -19,16 +20,27 @@
         android:layout_gravity="right" />
 
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id"
-        android:layout_gravity="center_horizontal"/>
+        android:text="Session Avg Speed: 0 MPH"
+        android:id="@+id/txtavg"
+        android:gravity="center_horizontal"
+        android:textColor="#32cd32"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight=".1"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Session Top Speed: 0 MPH"
+        android:id="@+id/txtmax"
+        android:gravity="center_horizontal"
+        android:textColor="#32cd32"
+        android:layout_gravity="center_horizontal" />
 
     <TextView
         android:layout_weight="1"
@@ -41,7 +53,8 @@
         android:textColor="#32cd32"
         android:textStyle="bold"
         android:textSize="150sp"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+/>
 
     <TextView
         android:layout_weight="1"
@@ -61,16 +74,15 @@
         android:background="#000000"
         >
 
-        <TextView
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight=".1"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Session Top Speed: 0 MPH"
-            android:id="@+id/txtmax"
-            android:gravity="center_horizontal"
-            android:textColor="#32cd32"
-        />
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id"
+            android:layout_weight=".1" />
 
     </LinearLayout>
 

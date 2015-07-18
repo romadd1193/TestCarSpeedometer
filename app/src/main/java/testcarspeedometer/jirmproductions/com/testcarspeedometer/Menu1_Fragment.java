@@ -1,6 +1,7 @@
 package testcarspeedometer.jirmproductions.com.testcarspeedometer;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -22,6 +23,7 @@ import com.google.android.gms.ads.AdView;
 public class Menu1_Fragment extends Fragment implements LocationListener {
     private TextView txt;
     private TextView maxtxt;
+    private TextView avg;
     public Menu1_Fragment(){}
 
     @Override
@@ -35,6 +37,7 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
 
         txt=(TextView)rootView.findViewById(R.id.initial);
         maxtxt=(TextView)rootView.findViewById(R.id.txtmax);
+        avg=(TextView) rootView.findViewById(R.id.txtavg);
 
 
         AdView mAdView = (AdView)rootView.findViewById(R.id.adView);
@@ -64,6 +67,7 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
             if (nCurrentSpeed > nMaxSpeed) {
                 nMaxSpeed=nCurrentSpeed;
                 maxtxt.setText("Top Speed this Session: "+(Math.round(nCurrentSpeed * 2.23694)+""));
+                avg.setText("Avg Speed this Session: ");
             }
 
         }
