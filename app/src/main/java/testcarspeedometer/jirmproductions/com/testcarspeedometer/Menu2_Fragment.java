@@ -38,6 +38,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
     double distance = 0L;
     double initLat = 0;
     double initLong = 0;
+    String flag = "";
     private Handler handler = new Handler();
     Location l;
     LocationManager lm;
@@ -69,6 +70,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
             public void onClick(View v) {
                 startTime = SystemClock.uptimeMillis();
                 distance = 0L;
+                flag = "sixty";
                 handler.postDelayed(updateTimerThread, 0);
             }
         });
@@ -78,6 +80,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
             public void onClick(View v) {
                 startTime = SystemClock.uptimeMillis();
                 distance = 0L;
+                flag = "quarter";
                 l = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 initLat = l.getLatitude();
                 initialLat.setText("InitLat: "+initLat+"");
@@ -129,15 +132,18 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
         }
         else{
             float nCurrentSpeed=location.getSpeed();
-            double nLat = location.getLatitude();
-            double nLong = location.getLongitude();
 
-            double dlon  = nLong - initLong;
-            double dlat  = nLat - initLat;
-            double a = Math.pow((Math.sin(dlat/2)),2) + Math.cos(initLat) * Math.cos(nLat) * Math.pow((Math.sin(dlon/2)),2);
-            double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-            distance = (3961.0 * c); // (where 3961 is the radius of the Earth);
-            totalDistance.setText("Distance: "+distance+"");
+            if(flag=="quarter") {
+                double nLat = location.getLatitude();
+                double nLong = location.getLongitude();
+
+                double dlon = nLong - initLong;
+                double dlat = nLat - initLat;
+                double a = Math.pow((Math.sin(dlat / 2)), 2) + Math.cos(initLat) * Math.cos(nLat) * Math.pow((Math.sin(dlon / 2)), 2);
+                double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                distance = (3961.0 * c); // (where 3961 is the radius of the Earth);
+                totalDistance.setText("Distance: " + distance + "");
+            }
             /*
             dlon = lon2 - lon1
             dlat = lat2 - lat1
@@ -150,7 +156,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
             {
                 handler.removeCallbacks(updateTimerThread);
             }
-            if((distance)>=0.25)
+            if(distance>=0.25&&flag=="quarter")
             {
                 handler.removeCallbacks(updateTimerThread);
             }
