@@ -13,7 +13,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_example"></string>
-    <string name="action_settings">MPH/KPH</string>
+    <string name="action_settings"></string>
     <string name="ImpInfo">Important Information</string>
 
 
@@ -21,7 +21,7 @@
 
     <string name="Information1">This app updates location constantly to provide the most accurate possible GPS based speed results.</string>
     <string name="Information2">This constant work can drain the battery quickly, so it is recommended to completely close the app or disable location services when it is not in use.</string>
-
+    <string name="Information3">The violation of the law is not condoned or encouraged, which probably means you shouldn’t use this app while you are driving.</string>
 
 
 
