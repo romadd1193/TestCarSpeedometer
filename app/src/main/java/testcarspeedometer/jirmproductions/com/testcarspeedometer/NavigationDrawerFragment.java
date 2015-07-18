@@ -250,23 +250,6 @@ public class NavigationDrawerFragment extends Fragment  {
             return true;
         }
 
-        if (item.getItemId() == R.id.action_example) {
-            View.OnClickListener listener = new View.OnClickListener() {
-               @Override
-                public void onClick(View v) {
-                    android.support.v4.app.FragmentManager manager = getFragmentManager();
-
-                    Bundle b  = new Bundle();
-
-                    b.putInt("position", position);
-
-                }
-            };
-
-
-            //return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
