@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import java.util.ArrayList;
+
 
 /**
  * Created by romad_000 on 6/7/2015.
@@ -24,6 +26,7 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
     private TextView txt;
     private TextView maxtxt;
     private TextView avg;
+    private ArrayList<Float> speedList = new ArrayList();
     public Menu1_Fragment(){}
 
     @Override
@@ -62,12 +65,19 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
     }
         else {
             float nCurrentSpeed=location.getSpeed();
+            speedList.add(nCurrentSpeed);
+            float sum = 0;
+            for(int i=0; i<speedList.size();i++)
+            {
+                 sum += speedList.get(i);
+            }
+            float averageSpeed = sum/speedList.size();
             txt.setText((Math.round(nCurrentSpeed * 2.23694)+""));
 
             if (nCurrentSpeed > nMaxSpeed) {
                 nMaxSpeed=nCurrentSpeed;
                 maxtxt.setText("Top Speed this Session: "+(Math.round(nCurrentSpeed * 2.23694)+""));
-                avg.setText("Avg Speed this Session: ");
+                avg.setText("Avg Speed this Session: "+(Math.round(averageSpeed * 2.23694)));
             }
 
         }
