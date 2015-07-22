@@ -20,7 +20,7 @@ import com.google.android.gms.ads.AdView;
 
 
 /**
- * Created by romad_000 on 6/7/2015.
+ * Created by romad_000 on 6/7/2015. Cool!
  */
 public class Menu2_Fragment extends Fragment implements LocationListener {
     private TextView txt;
@@ -141,22 +141,26 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
                 double dlat = nLat - initLat;
                 double a = Math.pow((Math.sin(dlat / 2)), 2) + Math.cos(initLat) * Math.cos(nLat) * Math.pow((Math.sin(dlon / 2)), 2);
                 double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-                distance = (3961.0 * c); // (where 3961 is the radius of the Earth);
+                distance = (3961.0 * c); // 3961 - radius of the Earth meters/mile - 1609.34
                 totalDistance.setText("Distance: " + distance + "");
             }
             /*
-            dlon = lon2 - lon1
-            dlat = lat2 - lat1
-            a = (sin(dlat/2))^2 + cos(lat1) * cos(lat2) * (sin(dlon/2))^2
-            c = 2 * atan2( sqrt(a), sqrt(1-a) )
-            d = R * c (where R is the radius of the Earth)
+            	// find the differences between the coordinates
+		        dlat = lat2 - lat1;
+		        dlon = lon2 - lon1;
+
+		        // here's the heavy lifting
+		        a  = Math.pow(Math.sin(dlat/2),2) + Math.cos(lat1) * Math.cos(lat2) * Math.pow(Math.sin(dlon/2),2);
+		        c  = 2 * Math.atan2(Math.sqrt(a),Math.sqrt(1-a)); // great circle distance in radians
+		        dm = c * Rm; // great circle distance in miles
+		        dk = c * Rk; // great circle distance in km
              */
             txt.setText((Math.round(nCurrentSpeed * 2.23694)+" MPH"));
             if((nCurrentSpeed*2.23694)>=60)
             {
                 handler.removeCallbacks(updateTimerThread);
             }
-            if(distance>=0.25&&flag.equals("quarter"))
+            if(distance>=(0.25*1)&&flag.equals("quarter"))
             {
                 handler.removeCallbacks(updateTimerThread);
             }
