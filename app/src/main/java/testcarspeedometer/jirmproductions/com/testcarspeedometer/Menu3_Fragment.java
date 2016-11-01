@@ -18,7 +18,7 @@ public class Menu3_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.importantinfo, container,false);
 
-
+        //test comment
         return rootview;
 
 
