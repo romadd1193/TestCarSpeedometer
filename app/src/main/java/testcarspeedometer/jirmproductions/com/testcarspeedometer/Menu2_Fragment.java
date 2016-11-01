@@ -1,11 +1,14 @@
 package testcarspeedometer.jirmproductions.com.testcarspeedometer;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.os.Handler;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -42,6 +46,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
     private Handler handler = new Handler();
     Location l;
     LocationManager lm;
+    public static final int MY_PERMISSIONS = 0;
 
     public Menu2_Fragment() {
     }
@@ -63,7 +68,21 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
         quarter = (ImageButton) rootView.findViewById(R.id.menu2imageButtonquarter);
         stop= (Button) rootView.findViewById(R.id.menu2stoptimerbutton);
         lm = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+
+        if (ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(getActivity(),
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    MY_PERMISSIONS);
+
+        }else{
+            Toast.makeText(getActivity().getApplicationContext(),"Permission Granted",Toast.LENGTH_SHORT).show();
+            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+        }
+
+
+        //lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
 
         z60.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +100,22 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
                 startTime = SystemClock.uptimeMillis();
                 distance = 0L;
                 flag = "quarter";
-                l = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+
+                if (ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(),
+                        Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                    ActivityCompat.requestPermissions(getActivity(),
+                            new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                            MY_PERMISSIONS);
+
+                }else{
+                    Toast.makeText(getActivity().getApplicationContext(),"Permission Granted",Toast.LENGTH_SHORT).show();
+                    l = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                }
+
+
+                //l = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 initLat = l.getLatitude();
                 initialLat.setText("InitLat: "+initLat+"");
                 initLong = l.getLongitude();

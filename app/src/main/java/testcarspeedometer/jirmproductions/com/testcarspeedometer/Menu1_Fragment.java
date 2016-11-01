@@ -1,17 +1,21 @@
 package testcarspeedometer.jirmproductions.com.testcarspeedometer;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -27,28 +31,41 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
     private TextView maxtxt;
     private TextView avg;
     private ArrayList<Float> speedList = new ArrayList();
-    public Menu1_Fragment(){}
+    public static final int MY_PERMISSIONS = 0;
+
+    public Menu1_Fragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
 
-
-
         View rootView = inflater.inflate(R.layout.menu1_layout, container, false);
 
-        txt=(TextView)rootView.findViewById(R.id.initial);
-        maxtxt=(TextView)rootView.findViewById(R.id.txtmax);
-        avg=(TextView) rootView.findViewById(R.id.txtavg);
+        txt = (TextView) rootView.findViewById(R.id.initial);
+        maxtxt = (TextView) rootView.findViewById(R.id.txtmax);
+        avg = (TextView) rootView.findViewById(R.id.txtavg);
 
 
-        AdView mAdView = (AdView)rootView.findViewById(R.id.adView);
+        AdView mAdView = (AdView) rootView.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        LocationManager lm= (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
-        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+        LocationManager lm = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+
+        if (ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(getActivity(),
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    MY_PERMISSIONS);
+
+        }else{
+            Toast.makeText(getActivity().getApplicationContext(),"Permission Granted",Toast.LENGTH_SHORT).show();
+            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+        }
+
 
         return rootView;
 
@@ -84,14 +101,6 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
 
 
     }
-
-
-
-
-
-
-
-
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
