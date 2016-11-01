@@ -29,11 +29,11 @@ import com.google.android.gms.ads.AdView;
 public class Menu2_Fragment extends Fragment implements LocationListener {
     private TextView txt;
     private TextView timer;
-    private TextView initialLat;
-    private TextView initialLong;
-    private TextView totalDistance;
+    //private TextView initialLat;
+    //private TextView initialLong;
+   // private TextView totalDistance;
     private ImageButton z60;
-    private ImageButton quarter;
+    //private ImageButton quarter;
     private Button stop;
     private long startTime = 0L;
     long timeInMilliseconds = 0L;
@@ -60,12 +60,12 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
         txt = (TextView) rootView.findViewById(R.id.menu2initial);
         timer = (TextView) rootView.findViewById(R.id.menu2timertxt);
 
-        initialLat = (TextView) rootView.findViewById(R.id.textView8);
-        initialLong = (TextView) rootView.findViewById(R.id.textView9);
-        totalDistance = (TextView) rootView.findViewById(R.id.textView10);
+        //initialLat = (TextView) rootView.findViewById(R.id.textView8);
+       // initialLong = (TextView) rootView.findViewById(R.id.textView9);
+        //totalDistance = (TextView) rootView.findViewById(R.id.textView10);
 
         z60 = (ImageButton) rootView.findViewById(R.id.menu2imageButtonzsixty);
-        quarter = (ImageButton) rootView.findViewById(R.id.menu2imageButtonquarter);
+        //quarter = (ImageButton) rootView.findViewById(R.id.menu2imageButtonquarter);
         stop= (Button) rootView.findViewById(R.id.menu2stoptimerbutton);
         lm = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
 
@@ -93,7 +93,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
                 handler.postDelayed(updateTimerThread, 0);
             }
         });
-
+/**
         quarter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,7 +123,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
                 handler.postDelayed(updateTimerThread, 0);
             }
         });
-
+**/
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -166,7 +166,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
         }
         else{
             float nCurrentSpeed=location.getSpeed();
-
+            /**
             if(flag.equals("quarter")) {
                 double nLat = location.getLatitude();
                 double nLong = location.getLongitude();
@@ -178,7 +178,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
                 distance = (3961.0 * c); // 3961 - radius of the Earth meters/mile - 1609.34
                 totalDistance.setText("Distance: " + distance + "");
             }
-            /*
+
             	// find the differences between the coordinates
 		        dlat = lat2 - lat1;
 		        dlon = lon2 - lon1;
