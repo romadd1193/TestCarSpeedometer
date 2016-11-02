@@ -18,9 +18,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.os.Handler;
 import android.widget.Toast;
+import com.amazon.device.ads.*;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 
 /**
@@ -56,6 +55,11 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.menu2_layout, container, false);
+
+        AdLayout adView = (AdLayout) rootView.findViewById(R.id.adView);
+        AdTargetingOptions adOptions = new AdTargetingOptions();
+        // Optional: Set ad targeting options here.
+        adView.loadAd(adOptions); // Retrieves an ad on background thread
 
         txt = (TextView) rootView.findViewById(R.id.menu2initial);
         timer = (TextView) rootView.findViewById(R.id.menu2timertxt);
@@ -132,10 +136,6 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
                 timer.setText("0:00:000");
             }
         });
-
-        AdView mAdView = (AdView)rootView.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
     return rootView;
 }

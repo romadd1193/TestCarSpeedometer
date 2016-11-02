@@ -17,8 +17,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
+import com.amazon.device.ads.*;
 
 import java.util.ArrayList;
 
@@ -47,10 +46,10 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
         maxtxt = (TextView) rootView.findViewById(R.id.txtmax);
         avg = (TextView) rootView.findViewById(R.id.txtavg);
 
-
-        AdView mAdView = (AdView) rootView.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+        AdLayout adView = (AdLayout) rootView.findViewById(R.id.adView);
+        AdTargetingOptions adOptions = new AdTargetingOptions();
+        // Optional: Set ad targeting options here.
+        adView.loadAd(adOptions); // Retrieves an ad on background thread
 
         LocationManager lm = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
 

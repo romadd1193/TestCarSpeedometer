@@ -2,12 +2,12 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:Amazon="http://schemas.android.com/apk/lib/com.amazon.device.ads"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#000000"
     android:keepScreenOn="true"
     >
-
 
     <DigitalClock
         android:layout_width="wrap_content"
@@ -67,23 +67,9 @@
         android:textStyle="bold"
         android:textSize="100sp"/>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.amazon.device.ads.AdLayout
+        android:id="@+id/adView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#000000"
-        >
-
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            ads:adSize="BANNER"
-            ads:adUnitId="@string/banner_ad_unit_id"
-            android:layout_weight=".1" />
-
-    </LinearLayout>
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
