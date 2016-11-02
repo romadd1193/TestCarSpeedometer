@@ -61,7 +61,7 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
                     MY_PERMISSIONS);
 
         }else{
-            Toast.makeText(getActivity().getApplicationContext(),"Permission Granted",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity().getApplicationContext(),"Permission Granted",Toast.LENGTH_SHORT).show();
             lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
         }
 
