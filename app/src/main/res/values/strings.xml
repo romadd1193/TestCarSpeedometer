@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Car Speedometer</string>
+    <string name="app_name">Speedometer Ultra</string>
 
     <string name="title_section1">Speed</string>
-    <string name="title_section2">Performance</string>
+    <string name="title_section2">Zero to Sixty</string>
     <string name="title_section3">Useful Information</string>
 
 

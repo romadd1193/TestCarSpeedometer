@@ -35,13 +35,12 @@
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="84dp"
-        android:layout_height="wrap_content"
+        android:layout_height="26dp"
         android:text="Stop Timer"
         android:id="@+id/menu2stoptimerbutton"
         android:layout_gravity="center_horizontal"
         android:textColor="#32cd32"
-        android:background="#000000"
-        android:layout_weight="0.51" />
+        android:background="#000000" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,11 +48,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="0 MPH"
         android:id="@+id/menu2initial"
-        android:paddingTop="30dp"
-        android:paddingBottom="70dp"
         android:textColor="#32cd32"
         android:textStyle="bold"
-        android:textSize="@dimen/abc_action_bar_default_height_material"
+        android:textSize="40sp"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.31" />
 
@@ -64,13 +61,14 @@
         android:layout_height="wrap_content"
         android:src="@drawable/zerotosixty"
         android:background="#000000"
-        android:layout_gravity="center"
-        android:layout_weight="0.18" />
+        android:layout_gravity="center_horizontal"
+         />
 
     <com.amazon.device.ads.AdLayout
         android:id="@+id/adView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        />
 
 
 </LinearLayout>
