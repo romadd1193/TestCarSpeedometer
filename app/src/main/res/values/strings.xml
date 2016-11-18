@@ -26,6 +26,9 @@
 
 
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="pref_sms_storage_title">Settings</string>
+    <string name="pref_summary_auto_delete"></string>
+    <string name="pref_title_auto_delete">Use Kilometers per Hour</string>
 
 
 </resources>

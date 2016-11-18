@@ -24,7 +24,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Session Avg Speed: 0 MPH"
+        android:text="Session Avg Speed: 0"
         android:id="@+id/txtavg"
         android:gravity="center_horizontal"
         android:textColor="#32cd32"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_weight=".1"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Session Top Speed: 0 MPH"
+        android:text="Session Top Speed: 0"
         android:id="@+id/txtmax"
         android:gravity="center_horizontal"
         android:textColor="#32cd32"

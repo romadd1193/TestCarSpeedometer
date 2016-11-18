@@ -62,22 +62,34 @@ public class MainActivity extends ActionBarActivity
 
         Fragment objFragment = null;
 
-        switch (position){
+        switch (position) {
             case 0:
-                objFragment = new Menu1_Fragment();
+                normalMethod(new Menu1_Fragment());
+                //objFragment = new Menu1_Fragment();
                 break;
             case 1:
-                objFragment = new Menu2_Fragment();
+                normalMethod(new Menu2_Fragment());
+                //objFragment = new Menu2_Fragment();
                 break;
             case 2:
-                objFragment = new Menu3_Fragment();
+                normalMethod(new Menu3_Fragment());
+                //objFragment = new Menu3_Fragment();
+                break;
+            case 3:
+                Intent myIntent = new Intent(this, SettingsActivity.class);
+                //myIntent.putExtra("key", value); //Optional parameters
+                this.startActivity(myIntent);
                 break;
         }
 
-        // update the main content by replacing fragments
+
+    }
+
+    // update the main content by replacing fragments
+    public void normalMethod(Fragment frag) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, objFragment)
+                .replace(R.id.container, frag)
                 .commit();
     }
 
@@ -91,6 +103,9 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 3:
                 mTitle = getString(R.string.title_section3);
+                break;
+            default:
+                mTitle = "Settings";
                 break;
         }
     }

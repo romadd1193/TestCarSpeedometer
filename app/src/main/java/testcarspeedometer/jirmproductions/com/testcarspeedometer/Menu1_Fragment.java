@@ -2,12 +2,14 @@ package testcarspeedometer.jirmproductions.com.testcarspeedometer;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -29,10 +31,12 @@ import java.util.ArrayList;
  */
 public class Menu1_Fragment extends Fragment implements LocationListener {
     private TextView txt;
+    private TextView txtBIG;
     private TextView maxtxt;
     private TextView avg;
     private ArrayList<Float> speedList = new ArrayList();
     public static final int MY_PERMISSIONS = 0;
+    public static boolean KPH_setting = false;
 
     public Menu1_Fragment() {
     }
@@ -41,12 +45,25 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+        Boolean KPH = sharedPref.getBoolean("switch_pref_KPH",false);
+        KPH_setting = KPH;
+
+        Toast.makeText(getActivity().getApplicationContext(),KPH.toString(),Toast.LENGTH_SHORT).show();
 
         View rootView = inflater.inflate(R.layout.menu1_layout, container, false);
 
         txt = (TextView) rootView.findViewById(R.id.initial);
+        txtBIG = (TextView) rootView.findViewById(R.id.textView7);
         maxtxt = (TextView) rootView.findViewById(R.id.txtmax);
         avg = (TextView) rootView.findViewById(R.id.txtavg);
+
+        if(KPH_setting==false){
+            txtBIG.setText("MPH");
+        }else
+        {
+            txtBIG.setText("KPH");
+        }
 
         AdLayout adView = (AdLayout) rootView.findViewById(R.id.adView);
         AdTargetingOptions adOptions = new AdTargetingOptions();
@@ -90,13 +107,26 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
                  sum += speedList.get(i);
             }
             float averageSpeed = sum/speedList.size();
-            txt.setText((Math.round(nCurrentSpeed * 2.23694)+""));
 
-            if (nCurrentSpeed > nMaxSpeed) {
-                nMaxSpeed=nCurrentSpeed;
-                maxtxt.setText("Top Speed this Session: "+(Math.round(nCurrentSpeed * 2.23694)+""));
-                avg.setText("Avg Speed this Session: "+(Math.round(averageSpeed * 2.23694)));
+            if(KPH_setting==false)
+            {
+                txt.setText((Math.round(nCurrentSpeed * 2.23694)+""));
+                if (nCurrentSpeed > nMaxSpeed) {
+                    nMaxSpeed=nCurrentSpeed;
+                    maxtxt.setText("Top Speed this Session: "+(Math.round(nCurrentSpeed * 2.23694)+" MPH"));
+                    avg.setText("Avg Speed this Session: "+(Math.round(averageSpeed * 2.23694))+" MPH");
+                }
+            }else
+            {
+                txt.setText((Math.round(nCurrentSpeed)+""));
+                if (nCurrentSpeed > nMaxSpeed) {
+                    nMaxSpeed=nCurrentSpeed;
+                    maxtxt.setText("Top Speed this Session: "+(Math.round(nCurrentSpeed*3.6)+" KPH"));
+                    avg.setText("Avg Speed this Session: "+(Math.round(averageSpeed*3.6))+"KPH");
+                }
             }
+
+
 
         }
 
@@ -117,4 +147,5 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
     public void onProviderDisabled(String provider) {
 
     }
+
 }

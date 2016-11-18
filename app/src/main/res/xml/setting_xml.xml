@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/pref_sms_storage_title"
+        android:key="pref_key_storage_settings">
+        <SwitchPreference
+            android:key="switch_pref_KPH"
+            android:summary="@string/pref_summary_auto_delete"
+            android:title="@string/pref_title_auto_delete"
+            android:defaultValue="false" />
+        </PreferenceCategory>
+    <SwitchPreference
+        android:defaultValue="false"
+        android:title="Enable Mirrored Text Mode"
+        android:summary="For HUD/Windshield Use"
+        android:key="switch_pref_Mirrored" />
+    <ListPreference
+        android:key="language_preference"
+        android:title="Text Color"
+        android:entries="@array/Colors" />
+</PreferenceScreen>
