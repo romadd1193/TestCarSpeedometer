@@ -11,11 +11,13 @@
         </PreferenceCategory>
     <SwitchPreference
         android:defaultValue="false"
-        android:title="Enable Mirrored Text Mode"
-        android:summary="For HUD/Windshield Use"
+        android:title="Mirrored Text Mode"
+        android:summary="Enable for HUD/windshield use"
         android:key="switch_pref_Mirrored" />
     <ListPreference
-        android:key="language_preference"
+        android:key="list_pref_color"
         android:title="Text Color"
-        android:entries="@array/Colors" />
+        android:entries="@array/Colors"
+        android:summary="Choose a text color for the app"
+        android:entryValues="@array/ColorsAlias"/>
 </PreferenceScreen>

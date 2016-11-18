@@ -43,7 +43,7 @@ public class MainActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AdRegistration.enableLogging(true);
+        //AdRegistration.enableLogging(true);
         AdRegistration.setAppKey("d4a4802714334dca9cb84172ba7c97f5");
         AdRegistration.registerApp(getApplicationContext());
 

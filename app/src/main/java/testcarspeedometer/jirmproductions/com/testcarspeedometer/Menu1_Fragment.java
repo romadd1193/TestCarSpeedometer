@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.text.AndroidCharacter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,6 +39,8 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
     private ArrayList<Float> speedList = new ArrayList();
     public static final int MY_PERMISSIONS = 0;
     public static boolean KPH_setting = false;
+    public static boolean Mirror_setting = false;
+    public static String Color_setting = "Green";
 
     public Menu1_Fragment() {
     }
@@ -47,9 +51,13 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
         Boolean KPH = sharedPref.getBoolean("switch_pref_KPH",false);
+        Boolean mirror = sharedPref.getBoolean("switch_pref_Mirrored",false);
+        String color = sharedPref.getString("list_pref_color", "def");
         KPH_setting = KPH;
+        Mirror_setting = mirror;
+        Color_setting = color;
 
-        Toast.makeText(getActivity().getApplicationContext(),KPH.toString(),Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity().getApplicationContext(),color,Toast.LENGTH_SHORT).show();
 
         View rootView = inflater.inflate(R.layout.menu1_layout, container, false);
 
@@ -58,11 +66,44 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
         maxtxt = (TextView) rootView.findViewById(R.id.txtmax);
         avg = (TextView) rootView.findViewById(R.id.txtavg);
 
+        String hexCode;
+
+        switch (Color_setting) {
+            case "Red":  hexCode = "#FF0000";
+                break;
+            case "Blue":  hexCode = "#0000FF";
+                break;
+            case "Purple":  hexCode = "#6600CC";
+                break;
+            case "Green":  hexCode = "#00FF00";
+                break;
+            case "White":  hexCode = "#FFFFFF";
+                break;
+            case "Yellow":  hexCode = "#FFFF00";
+                break;
+            case "Orange":  hexCode = "#FFA500";
+                break;
+            case "Pink":    hexCode = "#FF33CC";
+                break;
+            default: hexCode = "#FF00FF";
+                break;
+        }
+
+        txtBIG.setTextColor(Color.parseColor(hexCode));
+        txt.setTextColor(Color.parseColor(hexCode));
+        maxtxt.setTextColor(Color.parseColor(hexCode));
+        avg.setTextColor(Color.parseColor(hexCode));
+
         if(KPH_setting==false){
             txtBIG.setText("MPH");
         }else
         {
             txtBIG.setText("KPH");
+        }
+
+        if(Mirror_setting==true){
+            //soooooo hacky....
+            txtBIG.setText("ʜqʞ");
         }
 
         AdLayout adView = (AdLayout) rootView.findViewById(R.id.adView);
@@ -88,7 +129,6 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
         return rootView;
 
     }
-
 
 
     private float nMaxSpeed = 0;
