@@ -110,13 +110,6 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
             timer.setText("KPH");
         }
 
-        if(Mirror_setting==true){
-            if (KPH_setting==false) {
-                timer.setText("ʜqM");
-            }else
-            timer.setText("ʜqʞ");
-        }
-
         AdLayout adView = (AdLayout) rootView.findViewById(R.id.adView);
         AdTargetingOptions adOptions = new AdTargetingOptions();
         // Optional: Set ad targeting options here.

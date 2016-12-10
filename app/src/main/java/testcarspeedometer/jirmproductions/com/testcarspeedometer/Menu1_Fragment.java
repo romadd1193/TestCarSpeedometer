@@ -109,10 +109,6 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
         if(Mirror_setting==true){
 
         }
-            if (KPH_setting==false) {
-                txtBIG.setText("ʜqM");
-            }else
-                txtBIG.setText("ʜqʞ");
 
 
         AdLayout adView = (AdLayout) rootView.findViewById(R.id.adView);

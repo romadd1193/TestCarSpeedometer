@@ -10,11 +10,7 @@
             android:title="@string/pref_title_auto_delete"
             android:defaultValue="false" />
         </PreferenceCategory>
-    <SwitchPreference
-        android:defaultValue="false"
-        android:title="Mirrored Text Mode"
-        android:summary="Enable for HUD/windshield use"
-        android:key="switch_pref_Mirrored" />
+
     <ListPreference
         android:key="list_pref_color"
         android:title="Text Color"
