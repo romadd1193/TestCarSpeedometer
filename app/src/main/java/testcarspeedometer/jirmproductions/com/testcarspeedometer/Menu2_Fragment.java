@@ -2,12 +2,15 @@ package testcarspeedometer.jirmproductions.com.testcarspeedometer;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -20,6 +23,9 @@ import android.os.Handler;
 import android.widget.Toast;
 import com.amazon.device.ads.*;
 
+import static testcarspeedometer.jirmproductions.com.testcarspeedometer.Menu1_Fragment.Color_setting;
+import static testcarspeedometer.jirmproductions.com.testcarspeedometer.Menu1_Fragment.KPH_setting;
+import static testcarspeedometer.jirmproductions.com.testcarspeedometer.Menu1_Fragment.Mirror_setting;
 
 
 /**
@@ -54,7 +60,62 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+        Boolean KPH = sharedPref.getBoolean("switch_pref_KPH",false);
+        Boolean mirror = sharedPref.getBoolean("switch_pref_Mirrored",false);
+        String color = sharedPref.getString("list_pref_color", "def");
+        KPH_setting = KPH;
+        Mirror_setting = mirror;
+        Color_setting = color;
+
+        Toast.makeText(getActivity().getApplicationContext(),color,Toast.LENGTH_SHORT).show();
         View rootView = inflater.inflate(R.layout.menu2_layout, container, false);
+
+        txt = (TextView) rootView.findViewById(R.id.menu2initial);
+        timer = (TextView) rootView.findViewById(R.id.menu2timertxt);
+
+
+        String hexCode;
+
+        switch (Color_setting) {
+            case "Red":  hexCode = "#FF0000";
+                break;
+            case "Blue":  hexCode = "#0000FF";
+                break;
+            case "Purple":  hexCode = "#6600CC";
+                break;
+            case "Green":  hexCode = "#00FF00";
+                break;
+            case "White":  hexCode = "#FFFFFF";
+                break;
+            case "Yellow":  hexCode = "#FFFF00";
+                break;
+            case "Orange":  hexCode = "#FFA500";
+                break;
+            case "Pink":    hexCode = "#FF33CC";
+                break;
+            default: hexCode = "#FF00FF";
+                break;
+
+        }
+
+        timer.setTextColor(Color.parseColor(hexCode));
+        txt.setTextColor(Color.parseColor(hexCode));
+
+
+        if(KPH_setting==false){
+            timer.setText("MPH");
+        }else
+        {
+            timer.setText("KPH");
+        }
+
+        if(Mirror_setting==true){
+            if (KPH_setting==false) {
+                timer.setText("ʜqM");
+            }else
+            timer.setText("ʜqʞ");
+        }
 
         AdLayout adView = (AdLayout) rootView.findViewById(R.id.adView);
         AdTargetingOptions adOptions = new AdTargetingOptions();

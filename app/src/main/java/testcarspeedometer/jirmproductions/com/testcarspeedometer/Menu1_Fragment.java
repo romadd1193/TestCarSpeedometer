@@ -1,6 +1,7 @@
 package testcarspeedometer.jirmproductions.com.testcarspeedometer;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -27,6 +28,8 @@ import com.amazon.device.ads.*;
 
 import java.util.ArrayList;
 
+import static testcarspeedometer.jirmproductions.com.testcarspeedometer.R.menu.main;
+
 
 /**
  * Created by romad_000 on 6/7/2015.
@@ -41,6 +44,7 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
     public static boolean KPH_setting = false;
     public static boolean Mirror_setting = false;
     public static String Color_setting = "Green";
+
 
     public Menu1_Fragment() {
     }
@@ -87,6 +91,7 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
                 break;
             default: hexCode = "#FF00FF";
                 break;
+
         }
 
         txtBIG.setTextColor(Color.parseColor(hexCode));
@@ -102,9 +107,13 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
         }
 
         if(Mirror_setting==true){
-            //soooooo hacky....
-            txtBIG.setText("ʜqʞ");
+
         }
+            if (KPH_setting==false) {
+                txtBIG.setText("ʜqM");
+            }else
+                txtBIG.setText("ʜqʞ");
+
 
         AdLayout adView = (AdLayout) rootView.findViewById(R.id.adView);
         AdTargetingOptions adOptions = new AdTargetingOptions();

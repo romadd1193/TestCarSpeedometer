@@ -80,6 +80,7 @@ public class MainActivity extends ActionBarActivity
                 //myIntent.putExtra("key", value); //Optional parameters
                 this.startActivity(myIntent);
                 break;
+
         }
 
 
@@ -108,6 +109,7 @@ public class MainActivity extends ActionBarActivity
                 mTitle = "Settings";
                 break;
         }
+
     }
 
     public void restoreActionBar() {
