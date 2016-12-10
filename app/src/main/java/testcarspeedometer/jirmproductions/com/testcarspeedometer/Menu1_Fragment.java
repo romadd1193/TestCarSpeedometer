@@ -61,7 +61,7 @@ public class Menu1_Fragment extends Fragment implements LocationListener {
         Mirror_setting = mirror;
         Color_setting = color;
 
-        Toast.makeText(getActivity().getApplicationContext(),color,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity().getApplicationContext(),color,Toast.LENGTH_SHORT).show();
 
         View rootView = inflater.inflate(R.layout.menu1_layout, container, false);
 

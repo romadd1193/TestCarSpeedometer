@@ -69,7 +69,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
         Mirror_setting = mirror;
         Color_setting = color;
 
-        Toast.makeText(getActivity().getApplicationContext(),color,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity().getApplicationContext(),color,Toast.LENGTH_SHORT).show();
         View rootView = inflater.inflate(R.layout.menu2_layout, container, false);
 
         txt = (TextView) rootView.findViewById(R.id.menu2initial);

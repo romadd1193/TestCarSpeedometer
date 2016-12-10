@@ -40,7 +40,7 @@
         android:id="@+id/menu2stoptimerbutton"
         android:layout_gravity="center_horizontal"
         android:textColor="#32cd32"
-        android:background="#000000" />
+        android:background="#696969" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -55,14 +55,15 @@
         android:layout_weight="0.31" />
 
 
-    <ImageButton
+    <Button
         android:id="@+id/menu2imageButtonzsixty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/zerotosixty"
-        android:background="#000000"
-        android:layout_gravity="center_horizontal"
-         />
+        android:background="#696969"
+        android:layout_gravity="center"
+        android:layout_weight="0.18"
+        android:text="Start 0-60MPH Time"
+        android:textColor="#32cd32"/>
 
     <com.amazon.device.ads.AdLayout
         android:id="@+id/adView"
