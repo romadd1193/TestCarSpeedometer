@@ -108,13 +108,6 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
         stop.setTextColor(Color.parseColor(hexCode));
 
 
-        if(KPH_setting==false){
-            timer.setText("MPH");
-        }else
-        {
-            timer.setText("KPH");
-        }
-
         AdLayout adView = (AdLayout) rootView.findViewById(R.id.adView);
         AdTargetingOptions adOptions = new AdTargetingOptions();
         // Optional: Set ad targeting options here.
@@ -248,15 +241,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
 		        dm = c * Rm; // great circle distance in miles
 		        dk = c * Rk; // great circle distance in km
              */
-            txt.setText((Math.round(nCurrentSpeed * 2.23694)+" MPH"));
-            if((nCurrentSpeed*2.23694)>=60)
-            {
-                handler.removeCallbacks(updateTimerThread);
-            }
-            if(distance>=(0.25*1)&&flag.equals("quarter"))
-            {
-                handler.removeCallbacks(updateTimerThread);
-            }
+
         }
     }
 

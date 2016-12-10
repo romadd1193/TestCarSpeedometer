@@ -20,7 +20,7 @@
         android:text="@string/ImpInfo"
         android:id="@+id/textView2"
         android:layout_gravity="center"
-        android:textColor="#32cd32"
+        android:textColor="#ffffff"
         android:textStyle="bold"
         android:typeface="serif" />
 
@@ -32,7 +32,7 @@
         android:id="@+id/textView4"
         android:layout_gravity="center_horizontal"
         android:paddingTop="80px"
-        android:textColor="#32cd32"
+        android:textColor="#ffffff"
         android:paddingLeft="50px"
         android:paddingRight="50px"/>
 
@@ -43,7 +43,7 @@
         android:text="@string/Information1"
         android:id="@+id/textView5"
         android:layout_gravity="center_horizontal"
-        android:textColor="#32cd32"
+        android:textColor="#ffffff"
         android:paddingLeft="50px"
         android:paddingRight="50px"
         android:paddingTop="75px"/>
@@ -55,7 +55,7 @@
     android:text="@string/Information2"
     android:id="@+id/textView6"
     android:layout_gravity="center_horizontal"
-    android:textColor="#32cd32"
+    android:textColor="#ffffff"
     android:paddingLeft="50px"
     android:paddingRight="50px"
     android:paddingTop="75px" />
@@ -67,7 +67,7 @@
         android:text="@string/Information3"
         android:id="@+id/textView7"
         android:layout_gravity="center_horizontal"
-        android:textColor="#32cd32"
+        android:textColor="#ffffff"
         android:paddingLeft="50px"
         android:paddingRight="50px"
         android:paddingTop="75px"
