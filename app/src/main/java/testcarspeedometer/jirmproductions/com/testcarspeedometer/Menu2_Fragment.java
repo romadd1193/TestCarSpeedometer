@@ -26,6 +26,7 @@ import com.amazon.device.ads.*;
 import static testcarspeedometer.jirmproductions.com.testcarspeedometer.Menu1_Fragment.Color_setting;
 import static testcarspeedometer.jirmproductions.com.testcarspeedometer.Menu1_Fragment.KPH_setting;
 import static testcarspeedometer.jirmproductions.com.testcarspeedometer.Menu1_Fragment.Mirror_setting;
+import static testcarspeedometer.jirmproductions.com.testcarspeedometer.R.id.menu2stoptimerbutton;
 
 
 /**
@@ -37,7 +38,7 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
     //private TextView initialLat;
     //private TextView initialLong;
    // private TextView totalDistance;
-    private ImageButton z60;
+    private Button z60;
     //private ImageButton quarter;
     private Button stop;
     private long startTime = 0L;
@@ -73,6 +74,8 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
 
         txt = (TextView) rootView.findViewById(R.id.menu2initial);
         timer = (TextView) rootView.findViewById(R.id.menu2timertxt);
+        z60 = (Button) rootView.findViewById(R.id.menu2imageButtonzsixty);
+        stop = (Button) rootView.findViewById(R.id.menu2stoptimerbutton);
 
 
         String hexCode;
@@ -101,6 +104,8 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
 
         timer.setTextColor(Color.parseColor(hexCode));
         txt.setTextColor(Color.parseColor(hexCode));
+        z60.setTextColor(Color.parseColor(hexCode));
+        stop.setTextColor(Color.parseColor(hexCode));
 
 
         if(KPH_setting==false){
@@ -122,9 +127,9 @@ public class Menu2_Fragment extends Fragment implements LocationListener {
        // initialLong = (TextView) rootView.findViewById(R.id.textView9);
         //totalDistance = (TextView) rootView.findViewById(R.id.textView10);
 
-        z60 = (ImageButton) rootView.findViewById(R.id.menu2imageButtonzsixty);
+        z60 = (Button) rootView.findViewById(R.id.menu2imageButtonzsixty);
         //quarter = (ImageButton) rootView.findViewById(R.id.menu2imageButtonquarter);
-        stop= (Button) rootView.findViewById(R.id.menu2stoptimerbutton);
+        stop= (Button) rootView.findViewById(menu2stoptimerbutton);
         lm = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
 
         if (ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(),
